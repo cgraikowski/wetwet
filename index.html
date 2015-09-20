@@ -74,13 +74,13 @@
 								result.innerHTML = "<img src='images/loader.gif'>";
 							    if (navigator.geolocation) {
 							        navigator.geolocation.getCurrentPosition(showPosition);
-							    } else { 
+							    } else {
 							        result.innerHTML = "Geolocation is not supported by this browser.";
 							    }
 							}
 
 							function showPosition(position) {
-								 goecordurl = "http://api.wunderground.com/api/e5e4f9b45b89821b/geolookup/q/" + position.coords.latitude + "," + position.coords.longitude + ".json";  
+								 goecordurl = "http://api.wunderground.com/api/e5e4f9b45b89821b/geolookup/q/" + position.coords.latitude + "," + position.coords.longitude + ".json";
 							     console.log("lat=" + position.coords.latitude);
 							     console.log("lon=" + position.coords.longitude);
 								 $.ajax({
@@ -96,10 +96,10 @@
 								if ($("input[type=address]").val()=="") {
 									result.innerHTML = "Please fill in the zip code field first";
 								} else {
-									
-									
+
+
 									zip = $("input[type=address]").val();
-									
+
 
 									ziptocityurl = "http://api.wunderground.com/api/e5e4f9b45b89821b/geolookup/q/"+zip+".json";
 									$.ajax({
@@ -107,7 +107,7 @@
 								    }).then(function(data) {
 								    	console.log(data);
 								    	result.innerHTML = "Location: " +  data.location.city + ", " + data.location.state + ", " + data.location.country_name + "<br>";
-							        }); 
+							        });
 
 									console.log("zip= " + zip);
 									droughturl = "http://www.drought.gov/snapshot/zip?zip=" + zip;
@@ -117,7 +117,7 @@
 								      console.log(data.data);
 								      result.innerHTML += "Water Crisis Score in your area: " + data.data.dm + " <br><br> " + "<img width='300px' src='images/"+meterMap[data.data.image]+"'> <br>";
 								      result.innerHTML += "Your CurrentSea score will start at: " + (Number(data.data.image)+ 1.0) + "/" + meterMap.length + "<br>";
-								      
+
 								    });
 								}
 							}
@@ -131,12 +131,16 @@
 
 						<p>plan your outfit and see your impact on water consumption</p>
 
+<<<<<<< HEAD
 						<p>Hats slider here</p><br />
 						<p>Shirts slider here</p>
 						<p>Pants slider here</p>
 						<p>Shoes slider here</p>
 						<h2>These areas are the most severele affected by the drought. You geta higher score if you are in one of these: </h2>
                     <iframe width="100%" height="300px" src="map.html"></iframe>
+=======
+						<p><img src="images/mockup.png" style="background-color:#fff;padding:75px;margin:25px;" /></p>
+>>>>>>> origin/master
 					</header>
 
 					<!-- Total -->
