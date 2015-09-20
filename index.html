@@ -59,9 +59,9 @@
 						<h2>Drought Meter</h2>
 
 						<p>Please enter zip code:</p>
-							<input type="address" id="zipinput" placeholder="zip code">
-							<button onclick="getLocation()">Use current zipcode</button>
-							<button onclick="score()">Run Score </button>
+							<input type="address" id="zipinput" placeholder="zip code"><br><br>
+							<button onclick="score()" class="button special">Run Score </button><br><br>
+							<button onclick="getLocation()" class="button special">Use current zipcode</button>
 
 							<p id="score"></p>
 
@@ -106,7 +106,7 @@
 								        url: ziptocityurl
 								    }).then(function(data) {
 								    	console.log(data);
-								    	result.innerHTML = "Location: " + data.location.city + ", " + data.location.state + ", " + data.location.country_name + "<br>";
+								    	result.innerHTML = "Location: " +  data.location.city + ", " + data.location.state + ", " + data.location.country_name + "<br>";
 							        }); 
 
 									console.log("zip= " + zip);
@@ -115,8 +115,8 @@
 								        url: droughturl
 								    }).then(function(data) {
 								      console.log(data.data);
-								      result.innerHTML += "Water Crisis Score in your area: " + data.data.dm + " <br> " + "<img width='300px' src='images/"+meterMap[data.data.image]+"'> <br>";
-								      result.innerHTML += "Your WetWet score will start at: " + (Number(data.data.image)+ 1.0) + "/" + meterMap.length + "<br>";
+								      result.innerHTML += "Water Crisis Score in your area: " + data.data.dm + " <br><br> " + "<img width='300px' src='images/"+meterMap[data.data.image]+"'> <br>";
+								      result.innerHTML += "Your CurrentSea score will start at: " + (Number(data.data.image)+ 1.0) + "/" + meterMap.length + "<br>";
 								      
 								    });
 								}
