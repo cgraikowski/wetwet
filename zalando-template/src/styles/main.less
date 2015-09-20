@@ -1,0 +1,185 @@
+@import "slick";
+
+@defaultBackgroundColor: #fff;
+@defaultColor: #333;
+@defaultFontSize: 14px;
+@largeBreakpoint: 729px;
+@lightBackgroundColor: #f3f3f3;
+@mediumBreakpoint: 480px;
+
+.splash {
+  margin-top: 10px;
+}
+
+.main {
+  width: 66%;
+}
+.notmain {
+  background: #ddd;
+  float: right;
+  width: 33%;
+  height: 50px;
+  padding-top: 10px;
+}
+
+.catalog {
+    min-height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.catalogArticle {
+    border-bottom: 1px solid darken(@lightBackgroundColor, 5%);
+    box-sizing: border-box;
+    color: @defaultColor;
+    display: block;
+    padding: 2em 0;
+    text-align: center;
+    text-decoration: none;
+
+    > img {
+        height: 200px;
+        max-width: 100%;
+    }
+
+    > .name {
+        font-weight: bold;
+        margin: .5em 1em .3em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.article {
+    h1 {
+        background-color: @lightBackgroundColor;
+        border: solid darken(@lightBackgroundColor, 10%);
+        border-width: 1px 0;
+        font-size: @defaultFontSize * 1.2;
+        margin: 0;
+        padding: .3em 2em;
+        position: relative;
+        text-align: center;
+    }
+    .back {
+        background: none;
+        border: none;
+        color: @defaultColor;
+        display: block;
+        height: 30px;
+        left: .2em;
+        line-height: 28px;
+        margin: -15px 0 0 0;
+        outline: none;
+        position: absolute;
+        top: 50%;
+        width: 30px;
+
+        &:before {
+            content: '⬅︎';
+            font-size: 20px;
+        }
+    }
+}
+
+.message {
+    color: @defaultColor;
+    padding: 1em 1em 1em 3em;
+    position: relative;
+
+    &.error {
+        background-color: #fee;
+    }
+}
+
+.details {
+    border-top: 1px solid darken(@lightBackgroundColor, 5%);
+    box-sizing: border-box;
+    color: @defaultColor;
+    padding: 1em;
+
+    h2 {
+        font-size: @defaultFontSize * 1.2;
+        line-height: 1em;
+        margin: 0 0 .3em;
+        padding: 0;
+    }
+
+    p {
+        color: lighten(@defaultColor, 30%);
+        margin: 0 0 1em;
+    }
+
+    .size {
+        background-color: darken(@lightBackgroundColor, 5%);
+        border-radius: .3em;
+        color: @defaultColor;
+        display: inline-block;
+        margin: .2em .5em 0 0;
+        padding: .2em .5em;
+    }
+
+    .attributes {
+        padding-left: 2em;
+
+        > li {
+            margin: 0 0 .2em;
+        }
+
+        em {
+            font-style: normal;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.sliderWrapper {
+    position: relative;
+}
+
+.slider {
+    img {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+}
+
+.brandLogo, .pricePositioner {
+    background-color: #fff;
+    border-radius: 0 0 .5em 0;
+    padding: .5em;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+
+.brandLogo {
+    left: 0;
+    max-width: 50px;
+}
+
+.pricePositioner {
+    border-radius: 0  0 0 .5em ;
+    right: .5em;
+    text-align: right;
+}
+
+.currentPrice {
+    font-size: 32px;
+}
+
+.originalPrice {
+    color: lighten(@defaultColor, 30%);
+    text-decoration: line-through;
+}
+
+.linkToShop {
+    background-color: #ff700c;
+    color: #fff;
+    display: inline-block;
+    margin: 1em 0 0 0;
+    padding: 1em 2em;
+    text-decoration: none;
+}
