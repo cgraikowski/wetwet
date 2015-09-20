@@ -1,0 +1,323 @@
+@import "slick";
+
+@defaultBackgroundColor: #fff;
+@defaultColor: #333;
+@defaultFontSize: 14px;
+@largeBreakpoint: 729px;
+@lightBackgroundColor: #f3f3f3;
+@mediumBreakpoint: 480px;
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: @defaultFontSize;
+    margin: 0;
+    min-width: 320px;
+    padding: 0;
+}
+
+.splash {
+    @splashOffset: 20px;
+    background-size: contain;
+    background: url(/images/logo.png) 50% 50% no-repeat;
+    bottom: @splashOffset;
+    left: @splashOffset;
+    position: absolute;
+    right: @splashOffset;
+    top: @splashOffset;
+}
+
+.logo {
+    display: block;
+    margin: 1em 5%;
+    text-align: center;
+}
+
+.logo > img {
+    max-width: 100%;
+    width: 300px;
+}
+
+.filters {
+    overflow: hidden;
+    position: relative;
+
+    &:after {
+        background-color: darken(@lightBackgroundColor, 10%);
+        bottom: 0;
+        content: '';
+        left: 50%;
+        position: absolute;
+        top: 0;
+        width: 1px;
+    }
+
+    > select {
+        background: none;
+        border-radius: 0;
+        border: none;
+        box-sizing: border-box;
+        display: block;
+        float: left;
+        font-size: @defaultFontSize;
+        height: 30px;
+        margin: 0 1%;
+        outline: none;
+        padding: 0;
+        width: 48%;
+
+        &:disabled {
+            opacity: 0.5;
+        }
+    }
+}
+
+.catalog {
+    min-height: 100px;
+    overflow: hidden;
+    position: relative;
+
+    &.loading:after {
+        background-color: rgba(255, 255, 255, 0.8);
+        bottom: 0;
+        color: #666;
+        content: 'Loading...';
+        font-size: 18px;
+        left: 0;
+        padding: 2em;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+        z-index: 1;
+    }
+}
+
+.catalogArticle {
+    border-bottom: 1px solid darken(@lightBackgroundColor, 5%);
+    box-sizing: border-box;
+    color: @defaultColor;
+    display: block;
+    padding: 2em 0;
+    text-align: center;
+    text-decoration: none;
+
+    > img {
+        height: 200px;
+        max-width: 100%;
+    }
+
+    > .name {
+        font-weight: bold;
+        margin: .5em 1em .3em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.article {
+    h1 {
+        background-color: @lightBackgroundColor;
+        border: solid darken(@lightBackgroundColor, 10%);
+        border-width: 1px 0;
+        font-size: @defaultFontSize * 1.2;
+        margin: 0;
+        padding: .3em 2em;
+        position: relative;
+        text-align: center;
+    }
+    .back {
+        background: none;
+        border: none;
+        color: @defaultColor;
+        display: block;
+        height: 30px;
+        left: .2em;
+        line-height: 28px;
+        margin: -15px 0 0 0;
+        outline: none;
+        position: absolute;
+        top: 50%;
+        width: 30px;
+
+        &:before {
+            content: '⬅︎';
+            font-size: 20px;
+        }
+    }
+}
+
+.message {
+    color: @defaultColor;
+    padding: 1em 1em 1em 3em;
+    position: relative;
+
+    &.error {
+        background-color: #fee;
+    }
+}
+
+.details {
+    border-top: 1px solid darken(@lightBackgroundColor, 5%);
+    box-sizing: border-box;
+    color: @defaultColor;
+    padding: 1em;
+
+    h2 {
+        font-size: @defaultFontSize * 1.2;
+        line-height: 1em;
+        margin: 0 0 .3em;
+        padding: 0;
+    }
+
+    p {
+        color: lighten(@defaultColor, 30%);
+        margin: 0 0 1em;
+    }
+
+    .size {
+        background-color: darken(@lightBackgroundColor, 5%);
+        border-radius: .3em;
+        color: @defaultColor;
+        display: inline-block;
+        margin: .2em .5em 0 0;
+        padding: .2em .5em;
+    }
+
+    .attributes {
+        padding-left: 2em;
+
+        > li {
+            margin: 0 0 .2em;
+        }
+
+        em {
+            font-style: normal;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.sliderWrapper {
+    position: relative;
+}
+
+.slider {
+    img {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+}
+
+.brandLogo, .pricePositioner {
+    background-color: #fff;
+    border-radius: 0 0 .5em 0;
+    padding: .5em;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+
+.brandLogo {
+    left: 0;
+    max-width: 50px;
+}
+
+.pricePositioner {
+    border-radius: 0  0 0 .5em ;
+    right: .5em;
+    text-align: right;
+}
+
+.currentPrice {
+    font-size: 32px;
+}
+
+.originalPrice {
+    color: lighten(@defaultColor, 30%);
+    text-decoration: line-through;
+}
+
+.linkToShop {
+    background-color: #ff700c;
+    color: #fff;
+    display: inline-block;
+    margin: 1em 0 0 0;
+    padding: 1em 2em;
+    text-decoration: none;
+}
+
+footer {
+    border-top: 1px solid darken(@lightBackgroundColor, 10%);
+    margin: -1px 0 0 0;
+    padding: 1em 1em;
+    text-align: center;
+
+    > a {
+        color: lighten(@defaultColor, 50%);
+
+        &:hover {
+            color: @defaultColor;
+        }
+    }
+}
+
+@media screen and (min-width: @mediumBreakpoint) and (max-width: (@largeBreakpoint - 1px)) {
+    .catalogArticle {
+        float: left;
+        width: 50%;
+
+        &:nth-child(2n) {
+            border-left: 1px solid darken(@lightBackgroundColor, 5%);
+        }
+    }
+}
+
+@media screen and (min-width: @largeBreakpoint) {
+    nav, .filters {
+        float: left;
+        width: 50%;
+    }
+    .logo {
+        text-align: left;
+    }
+    .filters {
+        position: absolute;
+        right: 0;
+        top: 57px;
+    }
+    .catalog, .article {
+        border-top: 1px solid darken(@lightBackgroundColor, 5%);
+        clear: both;
+        overflow: hidden;
+    }
+    .article {
+        border-top: none;
+    }
+    .sliderWrapper {
+        float: left;
+        width: 60%;
+    }
+    .details {
+        border: solid darken(@lightBackgroundColor, 5%);
+        border-radius: 0 0 0 .5em;
+        border-width: 0 0 1px 1px;
+        float: right;
+        width: 40%;
+    }
+    .catalogArticle {
+        float: left;
+        width: 33.5%;
+
+        &:nth-child(3n + 2) {
+            border: solid darken(@lightBackgroundColor, 5%);
+            border-width: 0 1px 1px 1px;
+            width: 33%;
+        }
+    }
+}
