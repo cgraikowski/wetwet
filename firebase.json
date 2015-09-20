@@ -1,0 +1,9 @@
+{
+  "firebase": "currentsea",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
